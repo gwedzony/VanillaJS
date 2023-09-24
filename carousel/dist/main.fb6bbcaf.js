@@ -118,6 +118,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/main.js":[function(require,module,exports) {
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var $profile_pic = document.querySelector(".profile-pic");
 var $name = document.querySelector(".name");
 var $job_title = document.querySelector(".job-title");
@@ -146,28 +153,54 @@ var persons = [{
   description: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. " + "VHS farm-to-table schlitz, edison bulb pop-up 3 " + "wolf moon tote bag street art shabby chic.y",
   profilePic: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg"
 }];
-var index = 0;
-function cardChange(index) {
-  $name.innerHTML = persons[index].name;
-  $job_title.innerHTML = persons[index].jobTitle;
-  $description.innerHTML = persons[index].description;
-  $profile_pic.src = persons[index].profilePic;
-}
-$prev_button.addEventListener('click', function () {
-  if (index > 0) {
-    index -= 1;
-    cardChange(index);
+var Card = /*#__PURE__*/function () {
+  function Card() {
+    _classCallCheck(this, Card);
+    _defineProperty(this, "x", 0);
   }
+  _createClass(Card, [{
+    key: "cardChange",
+    value: function cardChange() {
+      $name.innerHTML = persons[this.x].name;
+      $job_title.innerHTML = persons[this.x].jobTitle;
+      $description.innerHTML = persons[this.x].description;
+      $profile_pic.src = persons[this.x].profilePic;
+    }
+  }, {
+    key: "nextCard",
+    value: function nextCard() {
+      console.log(persons.length);
+      if (this.x < persons.length - 1) {
+        this.x += 1;
+      }
+      this.cardChange();
+    }
+  }, {
+    key: "prevCard",
+    value: function prevCard() {
+      if (this.x > 0) {
+        this.x -= 1;
+      }
+      this.cardChange();
+    }
+  }, {
+    key: "randomCard",
+    value: function randomCard() {
+      this.x = Math.floor(Math.random() * 4);
+      this.cardChange();
+    }
+  }]);
+  return Card;
+}();
+var card = new Card();
+$prev_button.addEventListener('click', function () {
+  card.prevCard();
 });
 $next_button.addEventListener('click', function () {
-  if (index < persons.length - 1) {
-    index += 1;
-    cardChange(index);
-  }
+  card.nextCard();
 });
 $random_button.addEventListener('click', function () {
-  index = Math.floor(Math.random() * 4);
-  cardChange(index);
+  card.randomCard();
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
