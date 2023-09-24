@@ -1,0 +1,140 @@
+
+body{
+    line-height: 1.5;
+}
+
+main {
+    background-color: hsl(210, 36%, 96%);
+    display:grid;
+    min-height: 100vh;
+    place-items: center;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    max-width: 620px;
+}
+
+.underline {
+    height: 0.25rem;
+    width: 5rem;
+    background: hsl(205, 78%, 60%);
+    margin: 0 auto 64px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 24px;
+}
+
+.image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: hsl(205, 78%, 60%);
+    position: absolute;
+    top: -0.25rem;
+    right: -0.5rem;
+    border-radius: 50%;
+}
+
+.image img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image::after {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    content: "\f10e";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transform: translateY(25%);
+    background: hsl(205, 78%, 60%);
+    color: white;
+}
+
+
+h2 {
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 0.25rem;
+    font-family: "Roboto", sans-serif;
+    text-transform: capitalize;
+    margin-bottom: 0.75rem;
+}
+.name-and-title{
+    margin: 0 0 8px 0;
+}
+.name-and-title h4 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.25rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.name-and-title .job-title{
+    color:  hsl(205, 78%, 60%);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+.description{
+    text-align: center;
+}
+.description .desc{
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: hsl(210,22%,49%);
+    margin-bottom: 0.75rem;
+}
+
+.navigation button {
+    color: hsl(205,90%,76%);
+    font-size: 1.25rem;
+    background: transparent;
+    border-color: transparent;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.navigation button :hover {
+    color: hsl(205,90%,40%);
+}
+.random-button {
+    margin-top: 0.5rem;
+    color: hsl(205,78%,60%);
+    background: hsl(205,100%,96%);
+    text-transform: capitalize;
+    border-radius: 0.5rem;
+    border-color: hsl(205,78%,60%);
+    cursor: pointer;
+}
+
+
+/*# sourceMappingURL=/main.c52e0fe2.css.map */
